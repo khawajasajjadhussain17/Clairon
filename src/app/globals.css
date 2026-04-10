@@ -4,12 +4,61 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Gilroy — single family + numeric weights (Semibold = 600, Medium = 500).
+ * Optional files: public/fonts/Gilroy-Medium.woff2, Gilroy-SemiBold.woff2, Gilroy-Bold.woff2
+ */
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    local("Gilroy Medium"),
+    local("Gilroy-Medium"),
+    url("/fonts/Gilroy-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    local("Gilroy SemiBold"),
+    local("Gilroy-SemiBold"),
+    url("/fonts/Gilroy-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    local("Gilroy Bold"),
+    local("Gilroy-Bold"),
+    url("/fonts/Gilroy-Bold.woff2") format("woff2");
+}
+
+/*
+ * When Gilroy is missing, fall through to real UI sans fonts (never generic serif).
+ * .landing-heading / .landing-subheading keep font-weight 600 / 500 on these faces.
+ */
+:root {
+  --font-sans-fallback: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Helvetica, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans:
+    Gilroy,
+    var(--font-sans-fallback),
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,33 +95,53 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Clairon design tokens (Figma) */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-surface-tint: var(--surface-tint);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border-subtle: var(--border-subtle);
+  --color-brand-accent: var(--brand-accent);
+
+  --spacing-section-sm: 5rem;
+  --spacing-section: 6.25rem;
+  --spacing-section-lg: 8rem;
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  /* Vibrant blue primary (CTA / brand actions) */
+  --primary: oklch(0.52 0.22 264);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.02 264);
+  --secondary-foreground: #0f172a;
+  --muted: oklch(0.965 0.015 264);
+  --muted-foreground: oklch(0.48 0.02 264);
+  --accent: oklch(0.94 0.03 264);
+  --accent-foreground: #0f172a;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: #e1e7ff;
+  --input: #e1e7ff;
+  --ring: oklch(0.52 0.22 264);
+  --brand: oklch(0.52 0.22 264);
+  --brand-foreground: oklch(0.99 0 0);
+  --surface-tint: color-mix(in oklab, #b5c5ff 12%, white);
+  --surface-elevated: color-mix(in oklab, #ced8ff 14%, white);
+  --border-subtle: #e1e7ff;
+  --brand-accent: #ff6b35;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
+  /* ~11.9px from Figma */
+  --radius: 0.744rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -121,10 +190,49 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
   }
+
   html {
-    @apply font-sans;
+    @apply font-sans scroll-smooth;
+  }
+}
+
+/*
+ * Landing typography — maps to @font-face above:
+ *   .landing-heading     → Gilroy SemiBold (font-weight 600 → Gilroy-SemiBold.woff2 / local)
+ *   .landing-subheading  → Gilroy Medium   (font-weight 500 → Gilroy-Medium.woff2 / local)
+ * Use these classes (or LANDING_HEADING_FONT / LANDING_SUBHEADING_FONT in TS) for headings vs
+ * subheads. Do not add font-bold, font-semibold, font-medium, or font-normal on the same node.
+ */
+@layer components {
+  /*
+   * Wrap the marketing page (main + footer) so every section inherits one stack:
+   * Gilroy → --font-sans-fallback → sans-serif. Avoids mixed serif/sans if a child used font-serif.
+   */
+  .landing-font-root {
+    font-family: var(--font-sans);
+  }
+
+  /* If any section still uses `font-serif`, keep the same stack as the rest of the landing page. */
+  .landing-font-root .font-serif {
+    font-family: var(--font-sans);
+  }
+
+  .landing-heading {
+    /* Same stack as theme sans so fallback never drifts to serif; weight stays 600 (semi-bold). */
+    font-family: var(--font-sans);
+    font-weight: 600; /* SemiBold with Gilroy; real 600 on system UI fonts */
+    font-style: normal;
+    font-synthesis: none;
+  }
+
+  .landing-subheading {
+    font-family: var(--font-sans);
+    font-weight: 500; /* Medium with Gilroy; real 500 on system UI fonts */
+    font-style: normal;
+    font-synthesis: none;
   }
 }
