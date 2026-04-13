@@ -1,20 +1,30 @@
 import Link from "next/link"
+import { cn } from "@/lib/utils"
+import { LANDING_SUBHEADING_FONT } from "@/lib/landing-typography"
 
 export function HeroCtas() {
   return (
-    <div className="flex w-full max-w-md flex-col items-stretch gap-3 font-sans sm:mx-auto sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
+    <div className="flex items-center justify-center gap-3 mt-6">
       <Link
         href="#start"
-        className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#DCE5ED] bg-[linear-gradient(360deg,#0F131C_0%,#465882_141.25%)] px-6 py-3 text-[15px] font-bold leading-[1.25] text-white no-underline shadow-[0px_1px_0px_0px_#1B1F2333] transition-colors hover:bg-[linear-gradient(360deg,#1B2332_0%,#556a9b_141.25%)] sm:w-auto"
+        className={cn(
+          LANDING_SUBHEADING_FONT,
+          "px-5 py-2 text-sm font-medium text-white rounded-[10px] bg-gradient-to-b from-[#2b3445] to-[#1c2230] border border-[#DCE5ED] shadow-[0_2px_6px_rgba(0,0,0,0.2)] no-underline transition-all hover:opacity-90 active:scale-[0.98]"
+        )}
       >
         Start for Free
       </Link>
       <Link
         href="#sales"
-        className="inline-flex min-h-11 items-center justify-center rounded-full border border-black bg-transparent px-6 py-3 text-[15px] font-semibold leading-[1.25] text-[#03020B] no-underline transition-colors hover:bg-black/5 sm:w-auto"
+        className={cn(
+          LANDING_SUBHEADING_FONT,
+          "px-5 py-2 text-sm font-medium text-[#1a1a1a] rounded-[10px] border border-black bg-white/20 no-underline transition-all hover:bg-white/30 active:scale-[0.98]"
+        )}
       >
         Talk to sales
       </Link>
     </div>
   )
 }
+
+

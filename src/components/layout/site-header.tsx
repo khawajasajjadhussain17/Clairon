@@ -20,6 +20,15 @@ import Link from "next/link"
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : ""
@@ -29,8 +38,20 @@ export function SiteHeader() {
   }, [mobileOpen])
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-transparent">
-      <div className="flex h-[4.25rem] w-full min-w-0 items-center justify-between gap-1.5 px-[max(0.25rem,env(safe-area-inset-left,0px))] pr-[max(0.5rem,env(safe-area-inset-right,0px))] sm:h-[4.5rem] sm:gap-2 sm:px-[max(0.5rem,env(safe-area-inset-left,0px))] sm:pr-[max(1rem,env(safe-area-inset-right,0px))] lg:pr-[max(1.25rem,env(safe-area-inset-right,0px))]">
+    <header 
+      className={cn(
+        "sticky top-0 z-50 w-full transition-all duration-300 flex justify-center",
+        scrolled ? "pt-4" : "pt-0"
+      )}
+    >
+      <div 
+        className={cn(
+          "flex h-[4.25rem] items-center justify-between gap-2 px-4 transition-all duration-300 sm:h-[4.5rem] sm:px-6 lg:px-8",
+          scrolled 
+            ? "w-[95%] max-w-[1200px] rounded-full bg-white/80 backdrop-blur-md border border-slate-200/50 shadow-sm" 
+            : "w-full bg-transparent"
+        )}
+      >
         <Logo className="min-w-0 shrink" />
         <div className="hidden min-w-0 flex-1 justify-center px-2 lg:flex">
           <NavigationMenu className="max-w-none">
@@ -66,14 +87,14 @@ export function SiteHeader() {
           <Button
             variant="outline"
             size="sm"
-            className="h-9 rounded-lg border-[color-mix(in_oklab,#94a3b8_35%,transparent)] bg-background/60 px-2.5 text-[14px] font-medium leading-6 tracking-normal text-foreground shadow-none hover:bg-muted/40 sm:px-3.5 sm:text-[16px] md:px-4"
+            className="h-9 rounded-lg border border-[#DCE5ED] bg-background/60 px-2.5 text-[14px] font-medium leading-6 tracking-normal text-foreground shadow-none hover:bg-slate-50 sm:px-3.5 sm:text-[16px] md:px-4"
             render={<Link href="#sign-in" />}
           >
             Sign in
           </Button>
           <Button
             size="sm"
-            className="h-9 rounded-lg border border-transparent bg-foreground px-2.5 text-[14px] font-bold leading-6 tracking-normal text-background shadow-sm hover:bg-foreground/90 sm:px-3.5 sm:text-[16px] md:px-4"
+            className="h-9 rounded-lg border border-[#DCE5ED] bg-foreground px-2.5 text-[14px] font-bold leading-6 tracking-normal text-background shadow-[0px_1px_0px_0px_#1B1F2333] hover:bg-[#1a1a1a] sm:px-3.5 sm:text-[16px] md:px-4"
             render={<Link href="#waitlist" />}
           >
             <span className="hidden sm:inline">Join the waitlist</span>

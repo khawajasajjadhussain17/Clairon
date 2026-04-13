@@ -23,14 +23,14 @@ export function ChallengesVisual({ className }: { className?: string }) {
       </div>
 
       <div className="pointer-events-none absolute bottom-0 right-0 z-20 h-[88%] w-[64%] md:w-[62%]">
-        <Image
-          src="/assets/frontimg.png"
-          alt="Dashboard preview"
-          width={920}
-          height={640}
-          sizes="(min-width: 768px) 480px, 65vw"
-          className="absolute bottom-0 right-0 h-full w-full origin-bottom-right object-contain object-bottom-right scale-[1.12]"
-        />
+          <Image
+            src="/assets/frontimg.png"
+            alt="Dashboard preview"
+            width={920}
+            height={640}
+            sizes="(min-width: 768px) 480px, 65vw"
+            className="absolute bottom-0 right-0 h-full w-full origin-bottom-right object-contain object-bottom-right scale-[1.12]"
+          />
       </div>
     </div>
   )
