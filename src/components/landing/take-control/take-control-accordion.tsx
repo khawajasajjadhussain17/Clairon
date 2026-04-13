@@ -44,12 +44,7 @@ const items = [
 
 export function TakeControlAccordion() {
   return (
-    <Accordion
-      type="single"
-      collapsible
-      defaultValue="report"
-      className="flex flex-col gap-4"
-    >
+    <Accordion defaultValue={["report"]} className="flex flex-col gap-4">
       {items.map((item) => (
         <AccordionItem 
           key={item.id} 
