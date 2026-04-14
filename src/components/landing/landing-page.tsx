@@ -6,7 +6,7 @@ import { FeaturesSection } from "./features/features-section"
 import { HeroSection } from "./hero/hero-section"
 import { BrandsAgenciesSection } from "./brands-agencies/brands-agencies-section"
 import { PricingSection } from "./pricing/pricing-section"
-import { RoadmapPlatformsSection } from "./roadmap-platforms/roadmap-platforms-section"
+import { RoadmapSection } from "./roadmap-platforms/roadmap-platforms-section"
 import { TestimonialsSection } from "./testimonials/testimonials-section"
 import { TakeControlSection } from "./take-control/take-control-section"
 
@@ -33,7 +33,7 @@ export function LandingPage() {
         <FeaturesSection />
         <TakeControlSection />
         <BrandsAgenciesSection />
-        <RoadmapPlatformsSection />
+        <RoadmapSection />
         <TestimonialsSection />
         <PricingSection />
         <FaqSection />
