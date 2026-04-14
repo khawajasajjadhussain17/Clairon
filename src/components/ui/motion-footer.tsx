@@ -223,8 +223,10 @@ function ContactNewsletterStrip() {
           <Link
             href="mailto:clairon@gmail.com"
             className={cn(
-              "mt-6 inline-flex items-center gap-3 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-500",
-              "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+              "mt-6 inline-flex h-[52px] min-w-[168px] items-center justify-center gap-2 rounded-2xl border px-6 py-4 text-sm font-semibold text-white transition-opacity hover:opacity-90",
+              "bg-[linear-gradient(0deg,#0033FB,#0033FB),linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(255,255,255,0)_100%)]",
+              "border-white/15 shadow-[0_0_0_2px_#0033FB26,0_1px_2px_0_#2011487A]",
+              "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0033FB]"
             )}
           >
             Contact Us
@@ -261,8 +263,10 @@ function ContactNewsletterStrip() {
             <button
               type="submit"
               className={cn(
-                "flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-full bg-blue-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-500 sm:absolute sm:right-1.5 sm:top-1/2 sm:h-11 sm:w-auto sm:-translate-y-1/2 sm:justify-start sm:pl-5 sm:pr-2",
-                "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                "flex h-[52px] w-full shrink-0 items-center justify-center gap-2 rounded-2xl border px-6 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:absolute sm:right-1.5 sm:top-1/2 sm:h-[52px] sm:w-auto sm:-translate-y-1/2",
+                "bg-[linear-gradient(0deg,#0033FB,#0033FB),linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(255,255,255,0)_100%)]",
+                "border-white/15",
+                "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0033FB]"
               )}
             >
               Subscribe Now

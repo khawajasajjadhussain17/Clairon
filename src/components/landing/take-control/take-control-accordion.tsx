@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { BadgeCheck } from "lucide-react"
 
@@ -54,15 +55,19 @@ export function TakeControlAccordion() {
           <AccordionTrigger
             className={cn(
               "px-6 py-5 text-left text-[18px] font-bold text-[#03020B] hover:no-underline sm:text-[20px] md:text-[22px]",
-              /* Circular chevron control on the right */
-              "[&_[data-slot=accordion-trigger-icon]]:!ml-3 [&_[data-slot=accordion-trigger-icon]]:shrink-0",
-              "[&_[data-slot=accordion-trigger-icon]]:!h-8 [&_[data-slot=accordion-trigger-icon]]:!w-8 [&_[data-slot=accordion-trigger-icon]]:rounded-full",
-              "[&_[data-slot=accordion-trigger-icon]]:!border [&_[data-slot=accordion-trigger-icon]]:!border-[#e2e6ec] [&_[data-slot=accordion-trigger-icon]]:!bg-white [&_[data-slot=accordion-trigger-icon]]:!p-1.5",
-              "[&_[data-slot=accordion-trigger-icon]]:!text-[#5c6570]",
-              "[&_[data-slot=accordion-trigger-icon]]:shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
+              /* Hide default icon from shared accordion component. */
+              "[&_[data-slot=accordion-trigger-icon]]:hidden"
             )}
           >
-            {item.title}
+            <span className="pr-2">{item.title}</span>
+            <Image
+              src="/assets/control-icon.svg"
+              alt=""
+              width={19}
+              height={19}
+              className="ml-3 size-6 shrink-0 rotate-180 transition-transform duration-200 ease-out group-data-[panel-open]/accordion-trigger:rotate-0"
+              aria-hidden
+            />
           </AccordionTrigger>
           <AccordionContent className="px-6 pb-6 pt-0">
             <div className="flex flex-col gap-5">

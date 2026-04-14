@@ -194,9 +194,10 @@ function FaqContactCard() {
       <a
         href="#contact"
         className={cn(
-          "mt-10 inline-flex items-center gap-2 rounded-full bg-[#1F2937] px-8 py-3 text-sm font-semibold text-white",
-          "shadow-[0_4px_14px_rgba(15,23,42,0.18)] transition-opacity hover:opacity-90",
-          "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F2937]"
+          "mt-10 inline-flex h-[56.47px] min-w-[172.59px] items-center justify-center gap-[4.71px] rounded-2xl border-[1.18px] px-[18.82px] py-[16.47px] text-sm font-semibold text-white",
+          "bg-[linear-gradient(0deg,#0E121B,#0E121B),linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(255,255,255,0)_100%)]",
+          "border-white/15 shadow-[0_4px_14px_rgba(15,23,42,0.18)] transition-opacity hover:opacity-90",
+          "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E121B]"
         )}
       >
         Contact Us

@@ -171,8 +171,12 @@ export function TestimonialsSection() {
               type="button"
               onClick={() => setExpanded(true)}
               className={cn(
-                "rounded-full bg-[#03020B] px-8 py-3 text-sm font-semibold text-white",
-                "transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#03020B]"
+                "inline-flex h-[40px] w-[112.52px] items-center justify-center rounded-xl border py-2 pl-[17px] pr-[16.52px]",
+                "text-sm font-semibold tracking-tight text-[#EAF0FF]",
+                "bg-[linear-gradient(360deg,#0F131C_0%,#465882_141.25%)]",
+                "border-[#DCE5ED] shadow-[0_1px_0_0_#1B1F2333]",
+                "transition-opacity hover:opacity-95",
+                "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F131C]"
               )}
             >
               Show More
