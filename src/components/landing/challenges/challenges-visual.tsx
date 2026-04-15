@@ -6,7 +6,7 @@ export function ChallengesVisual({ className }: { className?: string }) {
     <div
       className={cn(
         "relative h-full min-h-[260px] w-full min-w-0 overflow-hidden rounded-2xl",
-        "bg-[#3B71FE] sm:min-h-[320px] md:min-h-[400px] lg:min-h-[440px]",
+        "bg-[linear-gradient(114.11deg,_#3E75FE_0%,_#274896_80.37%)] sm:min-h-[320px] md:min-h-[400px] lg:min-h-[440px]",
         className
       )}
     >

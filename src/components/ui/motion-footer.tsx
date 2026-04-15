@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, ArrowUpRight, Mail, Phone } from "lucide-react"
 import { Logo } from "@/components/brand/logo"
 import { Container } from "@/components/layout/container"
@@ -60,6 +61,20 @@ const footerSocial = [
   { label: "Linkedin", href: "https://linkedin.com" },
 ] as const
 
+const CONTACT_US_CTA_STYLE = {
+  backgroundColor: "#0033FB",
+  backgroundImage: "linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 100%)",
+  boxShadow:
+    "inset 0 1px 0 rgba(255,255,255,0.22), 0 0 0 1px rgba(255,255,255,0.2), 0 1px 2px rgba(32,17,72,0.45)",
+}
+
+const SUBSCRIBE_CTA_STYLE = {
+  backgroundColor: "#0033FB",
+  backgroundImage: "linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 100%)",
+  boxShadow:
+    "inset 0 1px 0 rgba(255,255,255,0.24), 0 0 0 1px rgba(255,255,255,0.24), 0 2px 6px rgba(32,17,72,0.28)",
+}
+
 function FooterInlineLink({
   href,
   children,
@@ -113,14 +128,6 @@ function FooterLinkList({
   )
 }
 
-/** Figma CTA graphic — four vertical slices, #0033FA, growing L→R (absolute layout → flex + gaps). */
-const CTA_SHAPES = [
-  { w: 52.67026138305664, h: 98.9837646484375 },
-  { w: 56.30269241333008, h: 146.20538330078125 },
-  { w: 72.64863586425781, h: 189.7945556640625 },
-  { w: 88.99458312988281, h: 231.56753540039062 },
-] as const
-
 function CtaWaveGraphic({ className }: { className?: string }) {
   return (
     <div
@@ -130,25 +137,14 @@ function CtaWaveGraphic({ className }: { className?: string }) {
       )}
       aria-hidden
     >
-      <div
-        className={cn(
-          "flex origin-bottom items-end justify-end",
-          "gap-[10px] sm:gap-[16px] md:gap-[21px]",
-          "scale-[0.58] sm:scale-[0.72] md:scale-[0.88] lg:scale-100"
-        )}
-      >
-        {CTA_SHAPES.map((s, i) => (
-          <div
-            key={i}
-            className="shrink-0 bg-[#0033FA]"
-            style={{
-              width: s.w,
-              height: s.h,
-              borderRadius: `0 ${s.w}px ${s.w}px 0`,
-            }}
-          />
-        ))}
-      </div>
+      <Image
+        src="/assets/cta/cta.svg"
+        alt=""
+        width={336}
+        height={232}
+        className="h-auto w-[200px] max-w-full sm:w-[250px] md:w-[300px] lg:w-[336px]"
+        unoptimized
+      />
     </div>
   )
 }
@@ -223,18 +219,17 @@ function ContactNewsletterStrip() {
           <Link
             href="mailto:clairon@gmail.com"
             className={cn(
-              "mt-6 inline-flex h-[52px] min-w-[168px] items-center justify-center gap-2 rounded-2xl border px-6 py-4 text-sm font-semibold text-white transition-opacity hover:opacity-90",
-              "bg-[linear-gradient(0deg,#0033FB,#0033FB),linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(255,255,255,0)_100%)]",
-              "border-white/15 shadow-[0_0_0_2px_#0033FB26,0_1px_2px_0_#2011487A]",
+              "mt-6 inline-flex h-14 min-w-[11.25rem] items-center justify-center gap-2.5 rounded-[1rem] border border-white/20 px-6 py-4 text-[1.03rem] font-semibold leading-none text-white transition-opacity hover:opacity-95",
               "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0033FB]"
             )}
+            style={CONTACT_US_CTA_STYLE}
           >
             Contact Us
             <span
-              className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white text-blue-600 shadow-sm"
+              className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white text-blue-600 shadow-sm"
               aria-hidden
             >
-              <ArrowRight className="size-4" strokeWidth={2.5} />
+              <ArrowRight className="size-3.5" strokeWidth={2.6} />
             </span>
           </Link>
         </div>
@@ -263,18 +258,17 @@ function ContactNewsletterStrip() {
             <button
               type="submit"
               className={cn(
-                "flex h-[52px] w-full shrink-0 items-center justify-center gap-2 rounded-2xl border px-6 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:absolute sm:right-1.5 sm:top-1/2 sm:h-[52px] sm:w-auto sm:-translate-y-1/2",
-                "bg-[linear-gradient(0deg,#0033FB,#0033FB),linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(255,255,255,0)_100%)]",
-                "border-white/15",
+                "flex h-[50px] w-full shrink-0 items-center justify-center gap-2 rounded-[1rem] border border-white/20 px-6 text-[1.03rem] font-semibold text-white transition-opacity hover:opacity-95 sm:absolute sm:right-1 sm:top-1/2 sm:h-[50px] sm:w-auto sm:-translate-y-1/2",
                 "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0033FB]"
               )}
+              style={SUBSCRIBE_CTA_STYLE}
             >
               Subscribe Now
               <span
-                className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white text-blue-600 shadow-sm"
+                className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white text-blue-600 shadow-sm"
                 aria-hidden
               >
-                <ArrowRight className="size-4" strokeWidth={2.5} />
+                <ArrowRight className="size-3.5" strokeWidth={2.6} />
               </span>
             </button>
           </div>
@@ -377,7 +371,7 @@ export function ClaironMotionFooter() {
             aria-hidden
           >
             <p
-              className="footer-clairon-watermark absolute bottom-0 left-1/2 w-[115%] max-w-none -translate-x-[calc(50%+min(4vw,3rem))] translate-y-[18%] text-center md:-translate-x-[calc(50%+min(5vw,4rem))] md:translate-y-[22%]"
+              className="footer-clairon-watermark absolute bottom-0 left-1/2 w-[115%] max-w-none -translate-x-1/2 translate-y-[18%] text-center md:translate-y-[22%]"
             >
               CLAIRON
             </p>

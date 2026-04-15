@@ -1,0 +1,46 @@
+<svg width="1264" height="668" viewBox="0 0 1264 668" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1_142)">
+<path d="M0 34.0392H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 82.0392H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 114.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 146.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 178.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 211.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 243.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 275.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 308.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 340.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 372.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 404.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 437.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 469.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 501.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M0 534.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M119 667.536V-59.2637" stroke="#DEE2E7" stroke-width="0.79"/>
+<path d="M280.803 533.736V-59.2637" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M388.803 533.736V-59.2637" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M496.803 533.736V-59.2637" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M604.803 533.736V-59.2637" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M712.803 533.736V-59.2637" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M820.803 533.736V-59.2637" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M928.803 533.736V-59.2637" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M1037 534L1037 -59" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M1264 668L1264 -59" stroke="#DEE2E7" stroke-width="0.79"/>
+<path d="M1145 534L1145 -59" stroke="#DEE2E7" stroke-width="0.79"/>
+<g filter="url(#filter0_f_1_142)">
+<path d="M632 -21C895.992 -21 1110 -94.2014 1110 -184.5C1110 -274.799 895.992 -348 632 -348C368.008 -348 154 -274.799 154 -184.5C154 -94.2014 368.008 -21 632 -21Z" fill="#FBFBFB"/>
+</g>
+<path d="M0 534.039H1264" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+<path d="M1145 667.536V-59.2637" stroke="#DEE2E7" stroke-width="0.79" stroke-dasharray="790 790"/>
+</g>
+<defs>
+<filter id="filter0_f_1_142" x="40" y="-462" width="1184" height="555" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="57" result="effect1_foregroundBlur_1_142"/>
+</filter>
+<clipPath id="clip0_1_142">
+<rect width="1264" height="668" fill="white"/>
+</clipPath>
+</defs>
+</svg>

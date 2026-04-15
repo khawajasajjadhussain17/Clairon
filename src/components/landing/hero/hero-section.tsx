@@ -5,6 +5,7 @@ import {
 import { cn } from "@/lib/utils"
 import { HeroCard } from "@/components/landing/hero/hero-card"
 import { HeroCtas } from "@/components/landing/hero/hero-ctas"
+import { HeroAttribution } from "@/components/landing/hero/hero-attribution"
 
 export function HeroSection() {
   return (
@@ -33,6 +34,9 @@ export function HeroSection() {
         </p>
 
         <HeroCtas />
+        <div className="mt-7 sm:mt-8">
+          <HeroAttribution />
+        </div>
 
         <div className="relative mt-12 flex w-full flex-col items-center sm:mt-14">
           <div className="relative mt-12 w-full flex justify-center sm:mt-16">

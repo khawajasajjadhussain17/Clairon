@@ -12,14 +12,14 @@ export function HeroAttribution() {
     >
       <span className="translate-y-[5px] leading-none">Developed by</span>
       <Image
-        src="/assets/Crescendo.png"
+        src="/assets/crescendo.png"
         alt="Crescendo"
-        width={160}
-        height={36}
-        className="h-7 w-auto object-contain sm:h-9"
+        width={173}
+        height={56}
+        className="h-[55.83px] w-[173.24px] object-contain"
+        unoptimized
       />
     </div>
-
   )
 }
 

@@ -30,6 +30,11 @@ const BLUEPRINT_GRID_STYLE: CSSProperties = {
     "linear-gradient(to bottom, black 0%, black 72%, transparent 100%)",
 }
 
+const FULL_BLEED_VISUAL_BASE: CSSProperties = {
+  backgroundImage:
+    "linear-gradient(180deg, rgba(232,236,255,0.95) 0%, rgba(241,244,255,0.88) 58%, rgba(241,244,255,0.68) 100%)",
+}
+
 type FeatureCardProps = {
   title: string
   description: string
@@ -41,11 +46,13 @@ function FeatureGraphic({
   icon,
   title,
   isFirstCard,
+  isSixthCard,
   imageOffsetClass,
 }: {
   icon: FeatureVisualIcon
   title: string
   isFirstCard?: boolean
+  isSixthCard?: boolean
   imageOffsetClass?: string
 }) {
   const imageSrc =
@@ -55,21 +62,48 @@ function FeatureGraphic({
     <div
       className={cn(
         "relative flex h-full min-h-[190px] w-full items-center justify-center p-2",
-        isFirstCard && "overflow-hidden rounded-[16px]"
+        (isFirstCard || isSixthCard) && "overflow-hidden rounded-[16px] p-0"
       )}
     >
-      <Image
-        src={imageSrc}
-        alt={`${title} illustration`}
-        width={isFirstCard ? 334 : 270}
-        height={isFirstCard ? 256 : 208}
-        className={cn(
-          "h-auto max-h-[200px] w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]",
-          isFirstCard && "max-h-[230px] object-contain",
-          imageOffsetClass
-        )}
-        unoptimized
-      />
+      {isFirstCard || isSixthCard ? (
+        <>
+          <div className="absolute inset-0" style={FULL_BLEED_VISUAL_BASE} aria-hidden />
+          {isSixthCard && (
+            <div
+              className="pointer-events-none absolute left-1/2 top-[44%] z-[1] h-[64%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-[14px] border border-white/80 bg-white/80 shadow-[0_10px_28px_rgba(99,119,194,0.16)] backdrop-blur-[2px]"
+              aria-hidden
+            />
+          )}
+          <Image
+            src={imageSrc}
+            alt={`${title} illustration`}
+            unoptimized
+            sizes="(min-width: 1024px) 339px, (min-width: 640px) 50vw, 100vw"
+            fill
+            className={cn(
+              "z-[1] transition-transform duration-700 group-hover:scale-[1.03]",
+              isFirstCard && "object-cover object-top",
+              isSixthCard && "object-cover object-top"
+            )}
+          />
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-20 bg-gradient-to-t from-[#F1F4FF] via-[#F1F4FF]/85 to-transparent"
+            aria-hidden
+          />
+        </>
+      ) : (
+        <Image
+          src={imageSrc}
+          alt={`${title} illustration`}
+          width={270}
+          height={208}
+          className={cn(
+            "h-auto max-h-[200px] w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]",
+            imageOffsetClass
+          )}
+          unoptimized
+        />
+      )}
     </div>
   )
 }
@@ -78,6 +112,7 @@ export function FeatureCard({ title, description, icon, className }: FeatureCard
   // We'll keep the same layout for all cards now as they use the new SVGs
   const isTrailingRow = icon === "feacture7" || icon === "feacture8" || icon === "feacture9"
   const isFirstCard = icon === "feacture1"
+  const isSixthCard = icon === "feacture6"
   const isPromptsCard = icon === "feacture2"
   const usesDottedSvgBackground = icon === "feacture1" || icon === "feacture6"
 
@@ -130,13 +165,14 @@ export function FeatureCard({ title, description, icon, className }: FeatureCard
       <div
         className={cn(
           "relative flex h-[214px] items-center justify-center overflow-visible px-6 pt-5 pb-1",
-          isFirstCard && "h-[236px] pb-0"
+          (isFirstCard || isSixthCard) && "h-[236px] overflow-hidden px-0 pt-0 pb-0"
         )}
       >
         <FeatureGraphic
           icon={icon}
           title={title}
           isFirstCard={isFirstCard}
+          isSixthCard={isSixthCard}
           imageOffsetClass={isPromptsCard ? "translate-y-[12px]" : "translate-y-[6px]"}
         />
       </div>
