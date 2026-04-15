@@ -93,12 +93,12 @@ function Svg3() {
 
 function PlatformsCoverage() {
   return (
-    <div className="mt-12 w-full lg:mt-14">
-      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-start md:gap-8">
+    <div className="mt-12 w-full lg:mt-24 text-left">
+      <div className="flex flex-col gap-4">
         <h3
           className={cn(
             LANDING_SECTION_HEADING_ON_LIGHT,
-            "max-w-[14ch] text-balance text-[clamp(30px,3.2vw,52px)] leading-[1.08] md:max-w-[12ch]"
+            "max-w-[20ch] text-balance text-[clamp(30px,3.2vw,52px)] leading-[1.08] text-left"
           )}
         >
           We Cover Every Major AI Platform
@@ -106,7 +106,7 @@ function PlatformsCoverage() {
         <p
           className={cn(
             LANDING_SUBHEADING_ON_LIGHT,
-            "max-w-[560px] text-[clamp(15px,1.1vw,19px)] pb-1 lg:max-w-none lg:whitespace-nowrap"
+            "max-w-[560px] text-[clamp(15px,1.1vw,19px)] text-left"
           )}
         >
           Clairon monitors your presence across the AI platforms your buyers
@@ -317,20 +317,18 @@ export function RoadmapSection() {
             </p>
 
             <div
-  className="absolute"
-  style={{
-    right: "100%",
-    top: "100%",
-    marginTop: SVG2_OFFSET_Y,
-
-    transform: `translateX(${SVG2_OFFSET_X}px)`,
-
-    zIndex: 0,
-    pointerEvents: "none",
-  }}
->
-  <Svg2 />
-</div>
+              className="absolute"
+              style={{
+                right: "100%",
+                top: "100%",
+                marginTop: SVG2_OFFSET_Y,
+                transform: `translateX(${SVG2_OFFSET_X}px)`,
+                zIndex: 0,
+                pointerEvents: "none",
+              }}
+            >
+              <Svg2 />
+            </div>
           </div>
 
           <div

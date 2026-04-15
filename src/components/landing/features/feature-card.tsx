@@ -65,15 +65,9 @@ function FeatureGraphic({
         (isFirstCard || isSixthCard) && "overflow-hidden rounded-[16px] p-0"
       )}
     >
-      {isFirstCard || isSixthCard ? (
+      {isFirstCard ? (
         <>
           <div className="absolute inset-0" style={FULL_BLEED_VISUAL_BASE} aria-hidden />
-          {isSixthCard && (
-            <div
-              className="pointer-events-none absolute left-1/2 top-[44%] z-[1] h-[64%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-[14px] border border-white/80 bg-white/80 shadow-[0_10px_28px_rgba(99,119,194,0.16)] backdrop-blur-[2px]"
-              aria-hidden
-            />
-          )}
           <Image
             src={imageSrc}
             alt={`${title} illustration`}
@@ -82,8 +76,7 @@ function FeatureGraphic({
             fill
             className={cn(
               "z-[1] transition-transform duration-700 group-hover:scale-[1.03]",
-              isFirstCard && "object-cover object-top",
-              isSixthCard && "object-cover object-top"
+              "object-cover object-top"
             )}
           />
           <div
@@ -91,6 +84,22 @@ function FeatureGraphic({
             aria-hidden
           />
         </>
+      ) : isSixthCard ? (
+        <div className="relative flex h-full w-full items-start justify-center pt-6 px-6">
+          <div className="relative mx-auto w-[85%] max-w-[260px] rounded-[14px] border border-white/80 bg-white/80 shadow-[0_10px_28px_rgba(99,119,194,0.16)] backdrop-blur-[2px] p-3">
+            <Image
+              src={imageSrc}
+              alt={`${title} illustration`}
+              width={260}
+              height={180}
+              className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-[1.03]"
+              unoptimized
+            />
+          </div>
+
+          {/* Bottom fade layer */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F1F4FF] via-[#F1F4FF]/80 to-transparent" />
+        </div>
       ) : (
         <Image
           src={imageSrc}
@@ -114,7 +123,7 @@ export function FeatureCard({ title, description, icon, className }: FeatureCard
   const isFirstCard = icon === "feacture1"
   const isSixthCard = icon === "feacture6"
   const isPromptsCard = icon === "feacture2"
-  const usesDottedSvgBackground = icon === "feacture1" || icon === "feacture6"
+  const usesDottedSvgBackground = icon === "feacture1"
 
   return (
     <article

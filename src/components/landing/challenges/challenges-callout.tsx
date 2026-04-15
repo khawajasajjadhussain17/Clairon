@@ -8,11 +8,10 @@ import { cn } from "@/lib/utils"
 export function ChallengesCallout() {
   return (
     <div className="relative mt-8">
-      {/* Three layering effect - simulated with stacked divs/shadows */}
       <div className="absolute -bottom-2 left-[2%] h-full w-[96%] rounded-[12px] bg-white/40 shadow-sm" aria-hidden />
       <div className="absolute -bottom-4 left-[4%] h-full w-[92%] rounded-[12px] bg-white/20 shadow-sm" aria-hidden />
 
-      <div className="relative flex w-full max-w-[480px] items-start gap-3 rounded-[12px] border border-slate-100 bg-white p-4 shadow-[0_12px_40px_rgba(0,0,0,0.04)] sm:gap-4 sm:p-6">
+      <div className="relative flex w-full max-w-[480px] items-start gap-3 rounded-[12px] border border-slate-100 bg-[#F3F4F6] p-4 shadow-[0_12px_40px_rgba(0,0,0,0.04)] sm:gap-4 sm:p-6">
         <div className="flex shrink-0 items-center justify-center pt-0.5">
           <Eye
             className="size-6 text-[#3B71FE]"

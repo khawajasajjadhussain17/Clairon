@@ -14,22 +14,22 @@ function ScheduleCallButton({ className }: { className?: string }) {
     <a
       href="#contact"
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border border-[#3B71FE] bg-[#eff4ff] px-6 py-2.5 text-[15px] font-semibold text-[#3B71FE] shadow-sm transition hover:bg-[#e7eeff] hover:shadow",
+        "inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] border-[#829BFF] bg-[#E6EBFF] px-8 py-[14px] text-center font-sans text-[18px] font-bold leading-none text-[#0033FA] shadow-sm transition hover:bg-[#d8e0ff] hover:shadow",
         className
       )}
     >
-      Schedule a Call
-      <ArrowRight className="size-4 shrink-0" aria-hidden />
+      Scheduled a Call
+      <ArrowRight className="size-5 shrink-0 text-[#0033FA]" aria-hidden />
     </a>
   )
 }
 
 function BulletList({ items }: { items: readonly string[] }) {
   return (
-    <ul className="flex flex-col gap-3">
+    <ul className="flex flex-col gap-[14px]">
       {items.map((text) => (
-        <li key={text} className="flex gap-3 text-[15px] leading-snug text-[#4b5563]">
-          <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full border border-[#dcfce7] bg-white text-[#16a34a] shadow-sm">
+        <li key={text} className={cn("flex items-start gap-3 text-[18px] font-semibold leading-[1.6] text-[#03020B]", LANDING_HEADING_FONT)}>
+          <span className="mt-1.5 flex size-5 shrink-0 items-center justify-center rounded-full border border-[#dcfce7] bg-white text-[#16a34a] shadow-sm">
             <Check className="size-3 stroke-[3]" aria-hidden />
           </span>
           <span>{text}</span>
@@ -83,7 +83,7 @@ export function BrandsAgenciesSection() {
             <div className="flex flex-col gap-5 lg:max-w-xl lg:justify-center">
               <h3
                 className={cn(
-                  "text-2xl leading-[1.1] tracking-[-0.02em] capitalize text-[#03020B] md:text-[28px]",
+                  "text-[32px] font-semibold leading-[1.2] tracking-[-0.01em] capitalize text-[#03020B] md:text-[40px]",
                   LANDING_HEADING_FONT
                 )}
               >
@@ -104,7 +104,7 @@ export function BrandsAgenciesSection() {
             <div className="flex flex-col gap-5 lg:max-w-xl lg:justify-center lg:pr-4">
               <h3
                 className={cn(
-                  "text-2xl leading-[1.1] tracking-[-0.02em] capitalize text-[#03020B] md:text-[28px]",
+                  "text-[32px] font-semibold leading-[1.2] tracking-[-0.01em] capitalize text-[#03020B] md:text-[40px]",
                   LANDING_HEADING_FONT
                 )}
               >

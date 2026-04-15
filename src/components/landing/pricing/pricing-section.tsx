@@ -249,7 +249,7 @@ export function PricingSection() {
               ctaLabel="Check your AI visibility for free"
               ctaHref="#contact"
               ctaIconVariant="blue"
-              className="min-h-[710px] rounded-[24px] lg:w-[404.6px] lg:px-4"
+              className="min-h-[710px] lg:px-4"
             />
           </div>
 
