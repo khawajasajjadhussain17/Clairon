@@ -12,7 +12,7 @@ export function HeroAttribution() {
     >
       <span className="translate-y-[5px] leading-none">Developed by</span>
       <Image
-        src="/assets/crescendo.png"
+        src="/assets/Crescendo.png"
         alt="Crescendo"
         width={173}
         height={56}
