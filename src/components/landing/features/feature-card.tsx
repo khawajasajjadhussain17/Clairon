@@ -40,38 +40,34 @@ type FeatureCardProps = {
 function FeatureGraphic({
   icon,
   title,
-  blendToText,
+  isFirstCard,
+  imageOffsetClass,
 }: {
   icon: FeatureVisualIcon
   title: string
-  blendToText?: boolean
+  isFirstCard?: boolean
+  imageOffsetClass?: string
 }) {
+  const imageSrc =
+    isFirstCard ? "/assets/feacturecard/feacture1.svg" : `/assets/feacturecard/${icon}.svg`
+
   return (
     <div
       className={cn(
         "relative flex h-full min-h-[190px] w-full items-center justify-center p-2",
-        blendToText && "overflow-hidden rounded-[16px]"
+        isFirstCard && "overflow-hidden rounded-[16px]"
       )}
     >
       <Image
-        src={`/assets/feacturecard/${icon}.svg`}
+        src={imageSrc}
         alt={`${title} illustration`}
-        width={270}
-        height={208}
+        width={isFirstCard ? 334 : 270}
+        height={isFirstCard ? 256 : 208}
         className={cn(
           "h-auto max-h-[200px] w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]",
-          blendToText && "max-h-[224px] object-top"
+          isFirstCard && "max-h-[230px] object-contain",
+          imageOffsetClass
         )}
-        style={
-          blendToText
-            ? {
-                maskImage:
-                  "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 62%, rgba(0,0,0,0.8) 72%, rgba(0,0,0,0.42) 84%, rgba(0,0,0,0) 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 62%, rgba(0,0,0,0.8) 72%, rgba(0,0,0,0.42) 84%, rgba(0,0,0,0) 100%)",
-              }
-            : undefined
-        }
         unoptimized
       />
     </div>
@@ -82,6 +78,7 @@ export function FeatureCard({ title, description, icon, className }: FeatureCard
   // We'll keep the same layout for all cards now as they use the new SVGs
   const isTrailingRow = icon === "feacture7" || icon === "feacture8" || icon === "feacture9"
   const isFirstCard = icon === "feacture1"
+  const isPromptsCard = icon === "feacture2"
   const usesDottedSvgBackground = icon === "feacture1" || icon === "feacture6"
 
   return (
@@ -118,30 +115,6 @@ export function FeatureCard({ title, description, icon, className }: FeatureCard
         </div>
       )}
 
-      {/* Bottom-up blue wash for first card */}
-      {isFirstCard && (
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[58%]"
-          aria-hidden
-          style={{
-            background:
-              "radial-gradient(120% 85% at 50% 100%, rgba(111, 138, 255, 0.32) 0%, rgba(137, 159, 255, 0.18) 36%, rgba(173, 190, 255, 0.08) 58%, rgba(232, 236, 255, 0) 100%)",
-          }}
-        />
-      )}
-
-      {/* Figma-like white blend that increases towards bottom */}
-      {isFirstCard && (
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[62%]"
-          aria-hidden
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(245, 248, 255, 0) 0%, rgba(245, 248, 255, 0.38) 38%, rgba(247, 249, 255, 0.7) 64%, rgba(249, 250, 255, 0.92) 82%, rgba(251, 252, 255, 1) 100%)",
-          }}
-        />
-      )}
-
       {/* Faint horizontal rule behind art for trailing row style */}
       {isTrailingRow && (
         <div
@@ -160,18 +133,12 @@ export function FeatureCard({ title, description, icon, className }: FeatureCard
           isFirstCard && "h-[236px] pb-0"
         )}
       >
-        <FeatureGraphic icon={icon} title={title} blendToText={isFirstCard} />
-
-        {isFirstCard && (
-          <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-[44%]"
-            aria-hidden
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(247,249,255,0) 0%, rgba(247,249,255,0.42) 42%, rgba(249,251,255,0.78) 70%, rgba(251,252,255,1) 100%)",
-            }}
-          />
-        )}
+        <FeatureGraphic
+          icon={icon}
+          title={title}
+          isFirstCard={isFirstCard}
+          imageOffsetClass={isPromptsCard ? "translate-y-[12px]" : "translate-y-[6px]"}
+        />
       </div>
 
       {/* Text Section */}
