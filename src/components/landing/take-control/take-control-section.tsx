@@ -20,7 +20,6 @@ export function TakeControlSection() {
           <div className="min-w-0 lg:flex lg:flex-col lg:justify-center">
             <TakeControlAccordion />
           </div>
-          {/* Fixed height so accordion expand/collapse does not resize this column */}
           <TakeControlVisual className="h-[min(72vw,380px)] min-h-[260px] shrink-0 sm:h-[min(68vw,420px)] sm:min-h-[300px] md:h-[460px] md:min-h-0 lg:h-[500px]" />
         </div>
       </Container>

@@ -154,69 +154,71 @@ function Svg3() {
 
 function PlatformsCoverage() {
   return (
-    <div className="mx-auto mt-28 w-full max-w-[1209px] px-6">
-      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+    <div className="mt-12 w-full px-8 sm:px-10 lg:mt-14 lg:pl-60 lg:pr-16 xl:pl-65 xl:pr-24">
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-start md:gap-8">
         <h3
           className={cn(LANDING_SECTION_HEADING_ON_LIGHT, "max-w-[12ch] text-balance")}
         >
           We Cover Every Major AI Platform
         </h3>
-        <p className={cn(LANDING_SUBHEADING_ON_LIGHT, "max-w-[560px] pb-1")}>
+        <p className={cn(LANDING_SUBHEADING_ON_LIGHT, "max-w-[560px] pb-1 md:max-w-none md:whitespace-nowrap")}>
           Clairon monitors your presence across the AI platforms your buyers
           trust most.
         </p>
       </div>
 
       <div className="relative mt-8">
-        <div className="flex items-center gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {PLATFORM_ITEMS.map((item) => {
-            if (item.wide) {
+        <div className="relative w-fit max-w-full">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {PLATFORM_ITEMS.map((item) => {
+              if (item.wide) {
+                return (
+                  <div
+                    key={item.src}
+                    className="relative h-16 w-56 shrink-0 overflow-hidden"
+                  >
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                )
+              }
+
               return (
                 <div
                   key={item.src}
-                  className="relative h-[72px] w-[252px] shrink-0 overflow-hidden rounded-[22px] bg-[#F7F8FC] shadow-[0_0_0_1px_rgba(15,23,42,0.08),0_6px_18px_rgba(15,23,42,0.06)]"
+                  className="relative size-16 shrink-0 overflow-hidden"
                 >
                   <img
                     src={item.src}
                     alt={item.alt}
-                    className="h-full w-full object-contain p-2"
+                    className="h-full w-full object-contain"
                   />
                 </div>
               )
-            }
+            })}
+          </div>
 
-            return (
-              <div
-                key={item.src}
-                className="relative h-[72px] w-[72px] shrink-0 overflow-hidden rounded-[18px] bg-[#F7F8FC] shadow-[0_0_0_1px_rgba(15,23,42,0.08),0_6px_18px_rgba(15,23,42,0.06)]"
-              >
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="h-full w-full object-contain p-1.5"
-                />
-              </div>
-            )
-          })}
+          {/* Edge fades: left + right */}
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28"
+            style={{
+              background:
+                "linear-gradient(90deg, #fff 0%, rgba(255,255,255,0) 100%)",
+            }}
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32"
+            style={{
+              background:
+                "linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.92) 30%, rgba(255,255,255,0) 100%)",
+            }}
+            aria-hidden
+          />
         </div>
-
-        {/* Edge fades: left + right */}
-        <div
-          className="pointer-events-none absolute inset-y-0 left-0 w-28"
-          style={{
-            background:
-              "linear-gradient(90deg, #fff 0%, rgba(255,255,255,0) 100%)",
-          }}
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute inset-y-0 right-0 w-28"
-          style={{
-            background:
-              "linear-gradient(270deg, #fff 0%, rgba(255,255,255,0) 100%)",
-          }}
-          aria-hidden
-        />
       </div>
     </div>
   )
