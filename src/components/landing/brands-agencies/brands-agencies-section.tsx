@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { ArrowRight, Check } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Container } from "@/components/layout/container"
 import { SectionHeading } from "@/components/typography/heading"
 import { Subheading } from "@/components/typography/subheading"
@@ -29,9 +29,14 @@ function BulletList({ items }: { items: readonly string[] }) {
     <ul className="flex flex-col gap-[14px]">
       {items.map((text) => (
         <li key={text} className={cn("flex items-start gap-3 text-[18px] font-semibold leading-[1.6] text-[#03020B]", LANDING_HEADING_FONT)}>
-          <span className="mt-1.5 flex size-5 shrink-0 items-center justify-center rounded-full border border-[#dcfce7] bg-white text-[#16a34a] shadow-sm">
-            <Check className="size-3 stroke-[3]" aria-hidden />
-          </span>
+          <Image
+            src="/assets/tick-circle.svg"
+            alt=""
+            width={26}
+            height={26}
+            className="mt-1.5 size-[26px] shrink-0"
+            aria-hidden
+          />
           <span>{text}</span>
         </li>
       ))}
