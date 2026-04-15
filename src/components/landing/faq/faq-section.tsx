@@ -80,7 +80,7 @@ function FaqAccordion() {
         <AccordionItem
           key={item.id}
           value={item.id}
-          className="rounded-2xl border border-slate-200/80 bg-slate-100/80 px-0 not-last:border-b-0 data-[open]:bg-slate-100"
+          className="overflow-hidden rounded-[18px] border border-[#E3E8F3] bg-[#F3F5FA] px-0 not-last:border-b-0"
         >
           <AccordionTrigger
             className={cn(
@@ -131,8 +131,8 @@ function FaqAccordion() {
               </span>
             </span>
           </AccordionTrigger>
-          <AccordionContent className="border-t border-slate-200/60 bg-white/70 px-5 pb-5 sm:px-6">
-            <p className="pt-4 text-sm leading-relaxed text-[#6b7280] sm:text-[15px]">
+          <AccordionContent className="bg-[#F3F5FA] px-5 pb-5 sm:px-6">
+            <p className="pt-0 text-sm leading-relaxed text-[#4B5563] sm:text-[15px]">
               {item.answer}
             </p>
           </AccordionContent>
