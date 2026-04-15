@@ -23,7 +23,7 @@ export function ChallengesSection() {
             <ChallengesCallout />
           </div>
 
-          <ChallengesVisual className="h-full min-h-[260px] w-full sm:min-h-[320px] md:min-h-[380px] lg:ml-5 xl:ml-7" />
+          <ChallengesVisual className="h-[min(72vw,380px)] min-h-[260px] shrink-0 sm:h-[min(68vw,420px)] sm:min-h-[300px] md:h-[460px] md:min-h-0 lg:ml-5 lg:h-[500px] xl:ml-7" />
         </div>
       </Container>
     </section>

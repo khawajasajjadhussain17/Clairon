@@ -5,19 +5,19 @@ export function ChallengesVisual({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative h-full min-h-[260px] w-full min-w-0 overflow-hidden rounded-2xl",
-        "bg-[linear-gradient(114.11deg,_#3E75FE_0%,_#274896_80.37%)] sm:min-h-[320px] md:min-h-[400px] lg:min-h-[440px]",
+        "relative h-[486px] w-full max-w-[667px] overflow-hidden rounded-[14px]",
+        "bg-[linear-gradient(114.11deg,_#3E75FE_0%,_#274896_80.37%)]",
         className
       )}
     >
-      <div className="pointer-events-none absolute bottom-0 right-0 z-20 h-[94%] w-[92%]">
+      <div className="absolute inset-y-0 right-0 w-[86%] sm:w-[88%] md:w-[90%]">
         <Image
           src="/assets/challenges.png"
           alt="Dashboard preview"
-          width={1078}
-          height={744}
-          sizes="(min-width: 1024px) 52vw, (min-width: 768px) 58vw, 92vw"
-          className="absolute bottom-0 right-0 h-full w-full object-contain object-bottom-right"
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-contain object-right-bottom"
+          priority
         />
       </div>
     </div>
