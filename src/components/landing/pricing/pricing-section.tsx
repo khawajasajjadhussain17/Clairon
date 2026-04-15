@@ -107,7 +107,11 @@ export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="relative overflow-hidden bg-[#080E2B] py-20 md:py-28 lg:py-32"
+      className="relative overflow-hidden py-20 md:py-28 lg:py-32"
+      style={{
+        background:
+          "radial-gradient(78.32% 366.82% at 80.3% 32.46%, #001A81 0%, #001150 100%)",
+      }}
       aria-labelledby="pricing-heading"
     >
       <div

@@ -157,11 +157,19 @@ function PlatformsCoverage() {
     <div className="mt-12 w-full px-8 sm:px-10 lg:mt-14 lg:pl-60 lg:pr-16 xl:pl-65 xl:pr-24">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-start md:gap-8">
         <h3
-          className={cn(LANDING_SECTION_HEADING_ON_LIGHT, "max-w-[12ch] text-balance")}
+          className={cn(
+            LANDING_SECTION_HEADING_ON_LIGHT,
+            "max-w-[14ch] text-balance text-[clamp(30px,3.2vw,52px)] leading-[1.08] md:max-w-[12ch]"
+          )}
         >
           We Cover Every Major AI Platform
         </h3>
-        <p className={cn(LANDING_SUBHEADING_ON_LIGHT, "max-w-[560px] pb-1 md:max-w-none md:whitespace-nowrap")}>
+        <p
+          className={cn(
+            LANDING_SUBHEADING_ON_LIGHT,
+            "max-w-[560px] text-[clamp(15px,1.1vw,19px)] pb-1 lg:max-w-none lg:whitespace-nowrap"
+          )}
+        >
           Clairon monitors your presence across the AI platforms your buyers
           trust most.
         </p>
@@ -200,8 +208,6 @@ function PlatformsCoverage() {
               )
             })}
           </div>
-
-          {/* Edge fades: left + right */}
           <div
             className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28"
             style={{
