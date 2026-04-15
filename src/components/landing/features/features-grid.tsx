@@ -34,7 +34,7 @@ export function FeaturesGrid() {
         <motion.div
           key={f.title}
           variants={item}
-          className="w-full max-w-[min(100%,401.51px)] justify-self-center"
+          className="w-full max-w-[min(100%,339px)] justify-self-center"
         >
           <FeatureCard
             title={f.title}

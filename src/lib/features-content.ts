@@ -26,37 +26,37 @@ export const featureItems: readonly {
     title: "Know Your Competition",
     description:
       "We reveal every brand mentioned, your ranking among them, and your share of AI visibility.",
-    icon: "knowCompetition",
+    icon: "feacture4",
   },
   {
     title: "AI Visibility Tracking",
     description:
       "Clairon updates your brand's AI visibility daily, weekly, and monthly without manual checks.",
-    icon: "aiVisibility",
+    icon: "feacture5",
   },
   {
     title: "Identify Sources",
     description:
       "Clairon shows you exactly which articles, websites, and platforms LLMs cite and learn from.",
-    icon: "identifySources",
+    icon: "feacture6",
   },
   {
     title: "We are World Wide",
     description:
       "Track your visibility across more than 200+ countries worldwide.",
-    icon: "grid7",
+    icon: "feacture7",
   },
   {
     title: "Collaboration Without Limits",
     description:
       "Manage your entire team in Clairon with role-based access and built-in collaboration.",
-    icon: "grid8",
+    icon: "feacture8",
   },
   {
     title: "Reddit",
     description:
       "Track all the reddits important for your industry and generate full optimized answer.",
-    icon: "grid9",
+    icon: "feacture9",
   },
 ] as const satisfies readonly {
   title: string

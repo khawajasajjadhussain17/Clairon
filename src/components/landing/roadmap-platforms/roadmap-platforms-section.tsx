@@ -300,9 +300,48 @@ export function RoadmapSection() {
         </Subheading>
       </div>
 
-      {/* ── Canvas: design-space px, scales down as viewport narrows (path/SVG alignment preserved) */}
+      {/* ── Mobile/Tablet: readable stacked roadmap cards */}
+      <div className="mx-auto mt-12 w-full max-w-3xl px-6 lg:hidden">
+        <div className="space-y-5">
+          {roadmapSteps.map((step) => (
+            <article
+              key={step.num}
+              className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]"
+            >
+              <div className="inline-flex rounded-full bg-[#EEF3FF] px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] text-[#0033FA]">
+                {`{ ${step.num} }`}
+              </div>
+              <h3
+                className={cn(
+                  LANDING_HEADING_FONT,
+                  "mt-3 text-[22px] leading-tight tracking-tight text-black sm:text-[24px]"
+                )}
+              >
+                {step.title}
+                {step.num === "004" ? (
+                  <span
+                    className={cn(
+                      LANDING_HEADING_FONT,
+                      "mt-1 block text-[22px] leading-tight tracking-tight text-black sm:text-[24px]"
+                    )}
+                  >
+                    {step.description}
+                  </span>
+                ) : null}
+              </h3>
+              {step.num !== "004" ? (
+                <p className="mt-3 text-sm leading-relaxed text-slate-500">
+                  {step.description}
+                </p>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Desktop canvas: design-space px, scales down as viewport narrows */}
       <div
-        className="relative mt-20 w-full overflow-hidden"
+        className="relative mt-20 hidden w-full overflow-hidden lg:block"
         style={{
           minHeight: `calc(${CANVAS_H}px * min(1, 100vw / ${CANVAS_W}))`,
         }}

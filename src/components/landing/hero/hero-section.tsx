@@ -3,10 +3,8 @@ import {
   LANDING_SUBHEADING_FONT,
 } from "@/lib/landing-typography"
 import { cn } from "@/lib/utils"
-import { HeroAttribution } from "@/components/landing/hero/hero-attribution"
 import { HeroCard } from "@/components/landing/hero/hero-card"
 import { HeroCtas } from "@/components/landing/hero/hero-ctas"
-import { HeroGrid } from "@/components/landing/hero/hero-grid"
 
 export function HeroSection() {
   return (
@@ -37,10 +35,7 @@ export function HeroSection() {
         <HeroCtas />
 
         <div className="relative mt-12 flex w-full flex-col items-center sm:mt-14">
-          <HeroAttribution />
-          
           <div className="relative mt-12 w-full flex justify-center sm:mt-16">
-            <HeroGrid />
             <HeroCard />
           </div>
         </div>

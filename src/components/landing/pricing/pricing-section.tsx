@@ -43,7 +43,7 @@ function BillingPillStrip({
       role="tablist"
       aria-label="Billing period"
       className={cn(
-        "flex h-[56px] rounded-[14px] border border-[#7EA0FF] bg-[#ECF1FF] p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]",
+        "flex items-center justify-between gap-[10px] rounded-[14px] border border-[#7EA0FF] bg-white p-[8px] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]",
         className
       )}
     >
@@ -55,10 +55,10 @@ function BillingPillStrip({
           aria-selected={billing === b.id}
           onClick={() => onChange(b.id)}
           className={cn(
-            "relative flex-1 rounded-[10px] px-3 py-2 text-[16px] font-[700] leading-5 tracking-[-0.5px] outline-none",
+            "relative inline-flex h-[36px] w-[103px] items-center justify-center rounded-[7px] px-4 py-2 text-[16px] font-[700] leading-5 tracking-[-0.5px] outline-none",
             billing === b.id
               ? "bg-[#0033FA] text-white shadow-[0_2px_8px_rgba(0,51,250,0.28)]"
-              : "bg-transparent text-[#0033FA]",
+              : "bg-[#E5EAFE] text-[#0033FA]",
             "focus-visible:ring-2 focus-visible:ring-[#0033FA]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[#E8EDFF]"
           )}
           style={{ fontFamily: "var(--font-inter), var(--font-sans)" }}
@@ -107,13 +107,21 @@ export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="bg-white py-20 md:py-28 lg:py-32"
+      className="relative overflow-hidden bg-[#080E2B] py-20 md:py-28 lg:py-32"
       aria-labelledby="pricing-heading"
     >
-      <Container>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(6,11,36,0.65)_0%,rgba(8,14,43,0)_36%)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[64%] bg-[radial-gradient(ellipse_at_center,rgba(31,82,255,0.34)_0%,rgba(31,82,255,0.12)_40%,rgba(8,14,43,0)_76%)]"
+      />
+      <Container className="relative z-10">
         <SectionHeading
           id="pricing-heading"
-          className="max-w-[min(100%,42rem)] text-balance px-1"
+          className="max-w-[min(100%,42rem)] text-balance px-1 !text-[#FFFFFF]"
         >
           <>
             Being Invisible Is More
@@ -129,13 +137,13 @@ export function PricingSection() {
 
           <div className="mx-auto mt-7 grid w-full max-w-[404.6px] grid-cols-3 gap-3 text-center">
             <p
-              className="text-center text-[13px] font-normal leading-[120%] tracking-normal text-black"
+              className="text-center text-[13px] font-normal leading-[120%] tracking-normal text-white/90"
               style={{ fontFamily: "Kalam, cursive" }}
             >
               Nothing
             </p>
             <p
-              className="text-center text-[13px] font-normal leading-[120%] tracking-normal text-black"
+              className="text-center text-[13px] font-normal leading-[120%] tracking-normal text-white/90"
               style={{ fontFamily: "Kalam, cursive" }}
             >
               <span className="block">10% discount &</span>
@@ -143,7 +151,7 @@ export function PricingSection() {
             </p>
             <div className="relative">
               <p
-                className="text-center text-[13px] font-normal leading-[120%] tracking-normal text-black"
+                className="text-center text-[13px] font-normal leading-[120%] tracking-normal text-white/90"
                 style={{ fontFamily: "Kalam, cursive" }}
               >
                 <span className="block">20% discount &</span>
@@ -153,7 +161,7 @@ export function PricingSection() {
           </div>
         </div>
 
-        <div className="mx-auto mt-14 max-w-[1200px] lg:mt-16 lg:flex lg:items-start lg:justify-center lg:gap-0">
+        <div className="relative z-10 mx-auto mt-14 max-w-[1200px] lg:mt-16 lg:flex lg:items-start lg:justify-center lg:gap-0">
           <div className="lg:relative lg:z-10 lg:w-[33%] lg:translate-y-10">
             <PricingCard
               title="Starter Plan"
@@ -237,7 +245,7 @@ export function PricingSection() {
               ctaLabel="Check your AI visibility for free"
               ctaHref="#contact"
               ctaIconVariant="blue"
-              className="min-h-[710px] rounded-[24px] border border-[#0033FA]/35 bg-[rgba(255,255,255,0.05)] backdrop-blur-[200px] lg:w-[404.6px] lg:px-4"
+              className="min-h-[710px] rounded-[24px] lg:w-[404.6px] lg:px-4"
             />
           </div>
 
