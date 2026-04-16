@@ -93,12 +93,12 @@ function Svg3() {
 
 function PlatformsCoverage() {
   return (
-    <div className="mt-12 w-full lg:mt-24 text-left">
-      <div className="flex flex-col gap-4">
+    <div className="mt-12 w-full lg:mt-24">
+      <div className="mx-auto flex w-full max-w-[1120px] px-4 md:px-6 flex-col gap-4 text-left md:flex-row md:items-end md:justify-start md:gap-8">
         <h3
           className={cn(
             LANDING_SECTION_HEADING_ON_LIGHT,
-            "max-w-[20ch] text-balance text-[clamp(30px,3.2vw,52px)] leading-[1.08] text-left"
+            "max-w-[20ch] text-balance text-[clamp(30px,3.2vw,52px)] leading-[1.08]"
           )}
         >
           We Cover Every Major AI Platform
@@ -106,7 +106,7 @@ function PlatformsCoverage() {
         <p
           className={cn(
             LANDING_SUBHEADING_ON_LIGHT,
-            "max-w-[560px] text-[clamp(15px,1.1vw,19px)] text-left"
+            "text-[clamp(15px,1.1vw,19px)] md:mb-2 md:whitespace-nowrap md:text-left"
           )}
         >
           Clairon monitors your presence across the AI platforms your buyers
@@ -114,52 +114,32 @@ function PlatformsCoverage() {
         </p>
       </div>
 
-      <div className="relative mt-8">
-        <div className="relative w-fit max-w-full">
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {PLATFORM_ITEMS.map((item) => {
-              if (item.wide) {
-                return (
-                  <div
-                    key={item.src}
-                    className="relative h-16 w-56 shrink-0 overflow-hidden"
-                  >
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      className="h-full w-full object-contain"
-                    />
-                  </div>
-                )
-              }
-
-              return (
-                <div
-                  key={item.src}
-                  className="relative size-16 shrink-0 overflow-hidden"
-                >
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    className="h-full w-full object-contain"
-                  />
-                </div>
-              )
-            })}
+      <div className="mx-auto mt-8 w-full max-w-[1120px] px-4 md:px-6">
+        <div className="relative">
+          <div className="flex flex-nowrap items-center justify-start gap-x-5 overflow-hidden">
+            {PLATFORM_ITEMS.map((item) => (
+              <div key={item.src} className="h-14 w-auto flex-shrink-0">
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className="h-full w-auto object-contain"
+                />
+              </div>
+            ))}
           </div>
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28"
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16"
             style={{
               background:
-                "linear-gradient(90deg, #fff 0%, rgba(255,255,255,0) 100%)",
+                "linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0))",
             }}
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32"
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16"
             style={{
               background:
-                "linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.92) 30%, rgba(255,255,255,0) 100%)",
+                "linear-gradient(to left, rgba(255,255,255,0.9), rgba(255,255,255,0))",
             }}
             aria-hidden
           />
@@ -171,23 +151,27 @@ function PlatformsCoverage() {
 
 
 
-const STEP1_LEFT = 24        
+const SIDE_GUTTER = 24
 
 const STEP1_TOP = 0
-const SVG1_H = 175
-const STEP2_TOP = STEP1_TOP + (165 - 35) + 40
-const STEP2_RIGHT = 240
-const STEP4_RIGHT = 130
-const STEP2_W = 460
-const STEP3_TOP = STEP2_TOP + 64 + (85 - 9) + 62  
-const STEP3_LEFT = 24
-const SVG2_OFFSET_X = 260
-const SVG2_OFFSET_Y = 18
-const SVG3_LEFT = 0
-const SVG3_TOP_GAP = 10
+const STEP1_LEFT = SIDE_GUTTER
+const STEP2_TOP = STEP1_TOP + 156
+const STEP2_RIGHT = 220
+const STEP2_W = 380
 
-const STEP4_TOP = STEP3_TOP + 202
+const STEP3_TOP = STEP2_TOP + 200
+const STEP3_LEFT = SIDE_GUTTER
+
+const STEP4_TOP = STEP3_TOP + 190
+const STEP4_RIGHT = 120
 const STEP4_W = 420
+
+const SVG2_OFFSET_X_LG = 130
+const SVG2_OFFSET_X_XL = 180
+const SVG2_TOP_LG = 136
+const SVG2_TOP_XL = 142
+const SVG3_LEFT = 0
+const SVG3_TOP_GAP = -4
 
 const CANVAS_H = STEP3_TOP + 420
 const roadmapStepTitleClassName = cn(
@@ -250,7 +234,7 @@ export function RoadmapSection() {
         </div>
       </div>
       <div
-        className="relative mt-20 hidden w-full overflow-x-hidden overflow-y-visible lg:block"
+        className="relative mt-20 hidden w-full overflow-visible lg:block"
         style={{
           minHeight: `calc(${CANVAS_H}px * min(1, (100vw - 48px) / ${CANVAS_W}))`,
         }}
@@ -274,33 +258,31 @@ export function RoadmapSection() {
             className="absolute"
             style={{ left: STEP1_LEFT, top: STEP1_TOP }}
           >
-            {/* Title */}
-            <h3
-              className={roadmapStepTitleClassName}
-            >
-              {roadmapSteps[0].title}
-            </h3>
+            <div className="relative inline-block">
+              <h3 className={roadmapStepTitleClassName}>{roadmapSteps[0].title}</h3>
+
+              <div
+                className="absolute"
+                style={{
+                  left: "100%",
+                  top: -15,
+                  transform: "none",
+                  marginLeft: 12,
+                  zIndex: 1,
+                  pointerEvents: "none",
+                }}
+              >
+                <Svg1 />
+              </div>
+            </div>
 
             <p className={cn("mt-3 max-w-[420px]", roadmapStepDescriptionClassName)}>
               {roadmapSteps[0].description}
             </p>
-
-            <div
-              className="absolute"
-              style={{
-                left: "100%",
-                marginLeft: -10,
-                top: 18 - 18,
-                zIndex: 1,
-                pointerEvents: "none",
-              }}
-            >
-              <Svg1 />
-            </div>
           </div>
 
           <div
-            className="absolute"
+            className="absolute -translate-x-12 xl:translate-x-0"
             style={{
               right: STEP2_RIGHT,
               top: STEP2_TOP,
@@ -308,21 +290,32 @@ export function RoadmapSection() {
             }}
           >
             <h3
-              className={cn(roadmapStepTitleClassName, "text-center")}
+              className={cn(roadmapStepTitleClassName, "text-left")}
             >
               {roadmapSteps[1].title}
             </h3>
-            <p className={cn("mx-auto mt-3 max-w-[460px] text-center", roadmapStepDescriptionClassName)}>
+            <p className={cn("mt-2 max-w-[320px] text-left", roadmapStepDescriptionClassName)}>
               {roadmapSteps[1].description}
             </p>
 
             <div
-              className="absolute"
+              className="absolute xl:hidden"
               style={{
                 right: "100%",
-                top: "100%",
-                marginTop: SVG2_OFFSET_Y,
-                transform: `translateX(${SVG2_OFFSET_X}px)`,
+                top: SVG2_TOP_LG,
+                transform: `translateX(${SVG2_OFFSET_X_LG}px)`,
+                zIndex: 0,
+                pointerEvents: "none",
+              }}
+            >
+              <Svg2 />
+            </div>
+            <div
+              className="absolute hidden xl:block"
+              style={{
+                right: "100%",
+                top: SVG2_TOP_XL,
+                transform: `translateX(${SVG2_OFFSET_X_XL}px)`,
                 zIndex: 0,
                 pointerEvents: "none",
               }}
@@ -369,9 +362,11 @@ export function RoadmapSection() {
           >
             <h3 className={roadmapStepTitleClassName}>
               {roadmapSteps[3].title}
-              <span className={cn(roadmapStepTitleClassName, "mt-1 block")}>
+              <span className={cn(roadmapStepTitleClassName, "block")}>
                 {roadmapSteps[3].description}
               </span>
+              <span className={cn(roadmapStepTitleClassName, "block")}>XXX</span>
+              <span className={cn(roadmapStepTitleClassName, "block")}>XX</span>
             </h3>
           </div>
 
