@@ -397,7 +397,7 @@ export function PricingSection() {
               ctaLabel="Contact Sales"
               ctaHref="#contact"
               ctaIconVariant="blue"
-              className="min-h-[700px] lg:px-4"
+              className="min-h-[710px] lg:px-4"
             />
           </div>
         </div>
