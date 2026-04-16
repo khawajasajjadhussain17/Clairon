@@ -38,15 +38,66 @@ const roadmapSteps = [
 ]
 
 const PLATFORM_ITEMS = [
-  { src: "/assets/claude.png", alt: "Claude" },
-  { src: "/assets/chatgpt.png", alt: "ChatGPT" },
-  { src: "/assets/grok.png", alt: "Grok" },
-  { src: "/assets/gemini.png", alt: "Gemini" },
-  { src: "/assets/ask.png", alt: "AI Overview", wide: true },
-  { src: "/assets/copilot.png", alt: "Copilot" },
-  { src: "/assets/grok1.png", alt: "DeepSeek" },
-  { src: "/assets/a.png", alt: "Perplexity" },
-  { src: "/assets/b.png", alt: "Mistral" },
+  {
+    src: "/assets/icons/claude.svg",
+    alt: "Claude",
+    width: 94.23828887939453,
+    height: 94.23828887939453,
+    visualScale: 1,
+  },
+  {
+    src: "/assets/icons/chatgpt.svg",
+    alt: "ChatGPT",
+    width: 80,
+    height: 80,
+    borderRadius: 10,
+    visualScale: 1,
+  },
+  {
+    src: "/assets/icons/perplexity.svg",
+    alt: "Perplexity",
+    width: 94.23828887939453,
+    height: 94.23828887939453,
+    visualScale: 1,
+  },
+  {
+    src: "/assets/icons/gemini.svg",
+    alt: "Gemini",
+    width: 93.64435577392578,
+    height: 94.23828887939453,
+    borderRadius: 24,
+    visualScale: 1,
+  },
+  {
+    src: "/assets/icons/ask.svg",
+    alt: "AI Overview",
+    width: 334.4573974609375,
+    height: 94.23828125,
+    borderRadius: 24,
+    visualScale: 1,
+    fit: "cover",
+  },
+  {
+    src: "/assets/icons/copilot.svg",
+    alt: "Copilot",
+    width: 94.23828887939453,
+    height: 94.23828887939453,
+    visualScale: 1,
+  },
+  {
+    src: "/assets/icons/deepseek.svg",
+    alt: "DeepSeek",
+    width: 94.23828887939453,
+    height: 94.23828887939453,
+    visualScale: 1.08,
+  },
+  {
+    src: "/assets/icons/orange.svg",
+    alt: "Orange",
+    width: 94.23828887939453,
+    height: 94.23828887939453,
+    visualScale: 1.33,
+  },
 ]
 
 function Svg1() {
@@ -116,9 +167,11 @@ function PlatformsCoverage() {
 
       <div className="mx-auto mt-8 w-full max-w-[1120px] px-4 md:px-6">
         <div className="flex w-full justify-center">
-          <div className="relative inline-flex flex-nowrap items-center justify-center gap-x-5">
+          <div
+            className="relative mx-auto inline-flex w-fit max-w-full flex-nowrap items-center justify-start xl:justify-center gap-4 px-4 md:px-6 overflow-x-auto overflow-y-visible [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
             <div
-              className="pointer-events-none absolute inset-y-0 left-0 z-20 w-12"
+              className="pointer-events-none absolute inset-y-0 left-0 z-20 hidden w-12 lg:block"
               style={{
                 background:
                   "linear-gradient(to right, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.88) 45%, rgba(255,255,255,0) 100%)",
@@ -126,7 +179,7 @@ function PlatformsCoverage() {
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute inset-y-0 right-0 z-20 w-12"
+              className="pointer-events-none absolute inset-y-0 right-0 z-20 hidden w-12 lg:block"
               style={{
                 background:
                   "linear-gradient(to left, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.88) 45%, rgba(255,255,255,0) 100%)",
@@ -134,11 +187,30 @@ function PlatformsCoverage() {
               aria-hidden
             />
             {PLATFORM_ITEMS.map((item) => (
-              <div key={item.src} className="h-14 w-auto flex-shrink-0">
+              <div
+                key={item.src}
+                className="flex-shrink-0 overflow-hidden"
+                style={{
+                  width: `${item.width}px`,
+                  minWidth: `${item.width}px`,
+                  maxWidth: `${item.width}px`,
+                  height: `${item.height}px`,
+                  minHeight: `${item.height}px`,
+                  maxHeight: `${item.height}px`,
+                }}
+              >
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="h-full w-auto object-contain"
+                  className={cn(
+                    "block h-full w-full",
+                    item.fit === "cover" ? "object-cover" : "object-contain"
+                  )}
+                  style={{
+                    ...(item.borderRadius ? { borderRadius: `${item.borderRadius}px` } : {}),
+                    transform: `scale(${item.visualScale ?? 1})`,
+                    transformOrigin: "center",
+                  }}
                 />
               </div>
             ))}
