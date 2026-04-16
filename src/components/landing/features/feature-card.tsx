@@ -159,14 +159,6 @@ export function FeatureCard({ title, description, icon, className }: FeatureCard
         </div>
       )}
 
-      {/* Faint horizontal rule behind art for trailing row style */}
-      {isTrailingRow && (
-        <div
-          className="pointer-events-none absolute top-[32%] right-6 left-6 z-[2] h-px bg-gradient-to-r from-transparent via-[#B8C5F0]/55 to-transparent"
-          aria-hidden
-        />
-      )}
-
       <div className="pointer-events-none absolute -top-20 -left-20 size-56 rounded-full bg-indigo-200/15 blur-3xl" />
       <div className="pointer-events-none absolute -top-8 -right-16 size-48 rounded-full bg-blue-200/20 blur-3xl" />
 
