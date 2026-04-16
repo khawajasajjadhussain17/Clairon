@@ -38,15 +38,15 @@ const roadmapSteps = [
 ]
 
 const PLATFORM_ITEMS = [
-  { src: "/assets/claude.png", alt: "Claude" },
-  { src: "/assets/chatgpt.png", alt: "ChatGPT" },
-  { src: "/assets/grok.png", alt: "Grok" },
-  { src: "/assets/gemini.png", alt: "Gemini" },
+  { src: "/assets/claude.png", alt: "Claude", wide: false },
+  { src: "/assets/chatgpt.png", alt: "ChatGPT", wide: false },
+  { src: "/assets/grok.png", alt: "Grok", wide: false },
+  { src: "/assets/gemini.png", alt: "Gemini", wide: false },
   { src: "/assets/ask.png", alt: "AI Overview", wide: true },
-  { src: "/assets/copilot.png", alt: "Copilot" },
-  { src: "/assets/grok1.png", alt: "DeepSeek" },
-  { src: "/assets/a.png", alt: "Perplexity" },
-  { src: "/assets/b.png", alt: "Mistral" },
+  { src: "/assets/copilot.png", alt: "Copilot", wide: false },
+  { src: "/assets/grok1.png", alt: "DeepSeek", wide: false },
+  { src: "/assets/a.png", alt: "Perplexity", wide: false },
+  { src: "/assets/b.png", alt: "Mistral", wide: false },
 ]
 
 function Svg1() {
@@ -94,11 +94,11 @@ function Svg3() {
 function PlatformsCoverage() {
   return (
     <div className="mt-12 w-full lg:mt-24">
-      <div className="mx-auto flex w-full max-w-[1120px] px-4 md:px-6 flex-col gap-4 text-left md:flex-row md:items-end md:justify-start md:gap-8">
+      <div className="mx-auto flex w-full max-w-[1218px] px-4 md:px-0 flex-col gap-4 text-left md:flex-row md:items-end md:justify-start md:gap-8">
         <h3
           className={cn(
             LANDING_SECTION_HEADING_ON_LIGHT,
-            "max-w-[20ch] text-balance text-[clamp(30px,3.2vw,52px)] leading-[1.08]"
+            "max-w-[15ch] text-balance text-[clamp(30px,4vw,56px)] leading-[1.1] tracking-[-0.02em]"
           )}
         >
           We Cover Every Major AI Platform
@@ -106,7 +106,7 @@ function PlatformsCoverage() {
         <p
           className={cn(
             LANDING_SUBHEADING_ON_LIGHT,
-            "text-[clamp(15px,1.1vw,19px)] md:mb-2 md:whitespace-nowrap md:text-left"
+            "text-[18px] leading-[1.6] text-[#525866] md:mb-1.5 md:whitespace-nowrap md:text-left"
           )}
         >
           Clairon monitors your presence across the AI platforms your buyers
@@ -114,31 +114,31 @@ function PlatformsCoverage() {
         </p>
       </div>
 
-      <div className="mx-auto mt-8 w-full max-w-[1120px] px-4 md:px-6">
-        <div className="flex w-full justify-center">
-          <div className="relative inline-flex flex-nowrap items-center justify-center gap-x-5">
-            <div
-              className="pointer-events-none absolute inset-y-0 left-0 z-20 w-12"
+      <div className="mx-auto mt-[46px] w-full max-w-[1218px] px-4 md:px-0">
+        <div className="flex w-full justify-center md:justify-start">
+          <div className="relative inline-flex flex-nowrap items-center justify-start gap-x-[18px]">
+            {/* Fade Overlay Mask */}
+            <div 
+              className="pointer-events-none absolute inset-y-0 -inset-x-1 z-20"
               style={{
-                background:
-                  "linear-gradient(to right, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.88) 45%, rgba(255,255,255,0) 100%)",
-              }}
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute inset-y-0 right-0 z-20 w-12"
-              style={{
-                background:
-                  "linear-gradient(to left, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.88) 45%, rgba(255,255,255,0) 100%)",
+                background: "linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 82.21%, #FFFFFF 100%)"
               }}
               aria-hidden
             />
             {PLATFORM_ITEMS.map((item) => (
-              <div key={item.src} className="h-14 w-auto flex-shrink-0">
+              <div 
+                key={item.src} 
+                className={cn(
+                  "h-[94.24px] flex-shrink-0 overflow-hidden",
+                  item.wide ? "w-[334.46px] rounded-[24px] shadow-[0px_0px_15px_rgba(0,0,0,0.12)]" : "w-[94.24px]",
+                  item.alt === "Grok" && "rounded-[24px] [filter:drop-shadow(0px_0px_15px_rgba(0,0,0,0.12))]",
+                  item.alt === "DeepSeek" && "[filter:drop-shadow(0px_0px_15px_rgba(0,0,0,0.12))]"
+                )}
+              >
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="h-full w-auto object-contain"
+                  className="h-full w-full object-cover"
                 />
               </div>
             ))}
